@@ -11,7 +11,8 @@
         "doctrine/dbal": "^2.5",
         "tcdent/php-restclient": "^0.1.5",
         "kepex/laravel-crud-generator": "^0.1.4",
-        "predis/predis": "^1.1"
+        "predis/predis": "^1.1",
+        "laravelcollective/remote": "^5.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
