@@ -27,8 +27,8 @@ class DashboardController extends Controller
 
     public function getVms()
     {
-        $reponse = '';
-        SSH::into('vmware')->run('/bin/esxcli --debug --formatter=python vm process list', function ($output) use ($reponse) {
+        $response = '';
+        SSH::into('vmware')->run('/bin/esxcli --debug --formatter=python vm process list', function ($output) use ($response) {
             $response .= $output;
         })->getOutput();
         return $response;
