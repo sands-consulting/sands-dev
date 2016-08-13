@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use SSH;
+
 class DashboardController extends Controller
 {
     public function getIps()
@@ -21,6 +23,11 @@ class DashboardController extends Controller
             ];
         }
         return $ips;
+    }
+
+    public function getVms()
+    {
+        return SSH::into('vmware')->run('/bin/esxcli --debug --formatter=python vm process list');
     }
     //
 }
