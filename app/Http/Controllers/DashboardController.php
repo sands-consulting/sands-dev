@@ -31,7 +31,7 @@ class DashboardController extends Controller
         SSH::into('vmware')->run('/bin/esxcli --debug --formatter=python vm process list', function ($output) use (&$response) {
             $response = $response . $output;
         });
-        return $response;
+        return json_decode($response);
     }
     //
 }
