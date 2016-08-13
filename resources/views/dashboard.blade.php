@@ -2,6 +2,37 @@
 @section('content')
 <h2 class="page-header">Dashboard</h2>
 <div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                VMWare
+            </div>
+            <div class="panel-body">
+                <div class="col-md-6">
+                    <p class="lead">
+                        <a href="https://vm-console.internal.my-sands.com" target="blank">https://vm-console.internal.my-sands.com</a>
+                        <ul class="list-unstyled">
+                            <li>Username: {{env('VMWARE_USER')}}</li>
+                            <li>Password: {{env('VMWARE_PASS')}}</li>
+                            <li>VMRemote:
+                                <a download href="/remote-console.dmg">Mac</a>
+                                <a download href="/remote-console.msi">Win</a>
+                            </li>
+                        </ul>
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <p class="lead">
+                        Teamviewer
+                        <ul class="list-unstyled">
+                            <li>Username: {{env('TEAMVIEWER_HOST')}}</li>
+                            <li>Password: {{env('VMWARE_PASS')}}</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="col-md-6">
         <div class="panel panel-default">
             <div class="panel-heading">
