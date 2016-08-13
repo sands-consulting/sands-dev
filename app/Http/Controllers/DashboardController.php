@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use SSH;
+use VMWare;
 
 class DashboardController extends Controller
 {
@@ -27,11 +27,7 @@ class DashboardController extends Controller
 
     public function getVms()
     {
-        $response = '';
-        SSH::into('vmware')->run('/bin/esxcli --debug --formatter=python vm process list', function ($output) use (&$response) {
-            $response = $response . $output;
-        });
-        return json_decode($response);
+        return VMWare::getVms();
     }
     //
 }

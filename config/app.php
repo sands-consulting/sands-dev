@@ -150,6 +150,7 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         CrudGenerator\CrudGeneratorServiceProvider::class,
         Collective\Remote\RemoteServiceProvider::class,
+        App\Libraries\VMWare\VMWareServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -206,6 +207,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'SSH' => Collective\Remote\RemoteFacade::class,
+        'VMWare' => App\Libraries\VMWare\VMWareFacade::class,
 
     ],
 
