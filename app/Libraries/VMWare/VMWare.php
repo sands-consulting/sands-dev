@@ -12,7 +12,7 @@ class VMWare
                 return;
             };
             $vm = [];
-            $values = preg_split('/\s{2,}/gi');
+            $values = preg_split('/\s{2,}/gi', $output);
             $vms[] = $values;
         });
         return $vms;
