@@ -8,8 +8,8 @@ class VMWare
     {
         $vms = [];
         app('remote')->into('vmware')->run('/bin/vim-cmd vmsvc/getallvms', function ($output) use (&$vms) {
-            if(strstr($output, 'Vmid')) {
-                continue;
+            if (strstr($output, 'Vmid')) {
+                return;
             };
             $vm = [];
             $values = preg_split('/\s{2,}/gi');
