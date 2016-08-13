@@ -1,12 +1,12 @@
 dev.my-sands.com {
-    root /opt/sands-dev
+    root /opt/sands-dev/public
     gzip
     fastcgi / /var/run/php/php7.0-fpm.sock php {
-        index server.php
+        index index.php
     }
     rewrite {
         r .*
         ext /
-        to /server.php?{query}
+        to /index.php?{query}
     }
 }
