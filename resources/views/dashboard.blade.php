@@ -33,6 +33,30 @@
             </div>
         </div>
     </div>
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                VMS
+            </div>
+            <table class="panel-body table">
+                <thead>
+                    <tr>
+                        <th>State</th>
+                        <th>Hostname</th>
+                        <th>OS</th>
+                        <th>IP</th>
+                        <th>Annotations</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="vmsTarget">
+                    <tr>
+                        <td colspan="3">Loading...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
     <div class="col-md-6">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -47,27 +71,6 @@
                     </tr>
                 </thead>
                 <tbody id="ipsTarget">
-                    <tr>
-                        <td colspan="3">Loading...</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                VMS
-            </div>
-            <table class="panel-body table">
-                <thead>
-                    <tr>
-                        <th>Hostname</th>
-                        <th>IP</th>
-                        <th>State</th>
-                    </tr>
-                </thead>
-                <tbody id="vmsTarget">
                     <tr>
                         <td colspan="3">Loading...</td>
                     </tr>
@@ -98,7 +101,15 @@
         $.getJSON('/dashboard/vms', function(response){
             vmsTarget.html('');
             $.each(response, function(key, val){
-                vmsTarget.append('<tr><td>' + val.hostName + '<br/>' + val.guestFullName + '</td><td>' + val.ipAddress + '</td><td>' + val.guestState + '</td></tr>');
+                var buttons = '<a class="btn btn-xs btn-default" href="https://vm-console.internal.my-sands.com/ui/#/console/' + val.id + '" target="blank"><i class="fa fa-desktop"></i></a> ';
+                if(val.ipAddress) {
+                    if(val.guestFamily  == 'linuxGuest') {
+                        buttons = buttons + '<a class="btn btn-xs btn-default" href="ssh://ubuntu@' + val.ipAddress + '" target="blank"><i class="fa fa-terminal"></i></a>'
+                    } else {
+                        buttons = buttons + '<a class="btn btn-xs btn-default" href="rdp://full%20address=s:' + val.ipAddress + '" target="blank"><i class="fa fa-terminal"></i></a>'
+                    }
+                }
+                vmsTarget.append('<tr><td>' + val.guestState + '</td><td>' + val.hostName + '</td><td>' + val.guestFullName + '</td><td>' + val.ipAddress + '</td><td>' + val.annotations + '</td><td>' + buttons + '</td></tr>');
             });
 
             console.log(response);
