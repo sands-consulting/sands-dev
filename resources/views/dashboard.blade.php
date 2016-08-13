@@ -31,9 +31,9 @@
             <table class="panel-body table">
                 <thead>
                     <tr>
+                        <th>Hostname</th>
                         <th>IP</th>
-                        <th>MAC</th>
-                        <th>Description</th>
+                        <th>State</th>
                     </tr>
                 </thead>
                 <tbody id="vmsTarget">
@@ -66,6 +66,10 @@
         var vmsTarget = $('#vmsTarget');
         $.getJSON('/dashboard/vms', function(response){
             vmsTarget.html('');
+            $.each(response, function(key, val){
+                vmsTarget.append('<tr><td>' + val.hostName + '<br/>' + val.guestFullName + '</td><td>' + val.ipAddress + '</td><td>' + val.guestState + '</td></tr>');
+            });
+
             console.log(response);
         });
     </script>
