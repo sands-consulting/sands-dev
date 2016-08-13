@@ -5,6 +5,8 @@ dev.my-sands.com {
         index server.php
     }
     rewrite {
+        r .*
+        ext /
         to /server.php?{query}
     }
 }
