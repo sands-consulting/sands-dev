@@ -11,8 +11,3 @@ dev.my-sands.com {
     }
 }
 
-vm.my-sands.com {
-    proxy / https://vm-console.internal.my-sands.com {
-        insecure_skip_verify
-    }
-}
