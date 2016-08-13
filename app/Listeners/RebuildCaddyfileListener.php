@@ -4,6 +4,7 @@ namespace App\Listeners;
 
 use App\Application;
 use App\Events\RebuildCaddyfileEvent;
+use App\Jobs\RestartCaddyService;
 
 class RebuildCaddyfileListener
 {
@@ -34,6 +35,6 @@ class RebuildCaddyfileListener
             return ($carry . "\n" . $template);
         }, file_get_contents(resource_path('templates/Caddyfile')));
         file_put_contents(base_path('share/Caddyfile'), $caddyfile);
-        exec("/usr/bin/sudo /usr/sbin/service caddy restart");
+        dispatch(new RestartCaddyService());
     }
 }
