@@ -16,11 +16,9 @@
                     <tr>
                         <th>Id</th>
                         <th>Name</th>
-                        <th>User Id</th>
+                        <th>Owner</th>
                         <th>Zone</th>
                         <th>Forward Proxy Host</th>
-                        <th>Enabled Http</th>
-                        <th>Enabled Https</th>
                         <th>Created At</th>
                         <th>Updated At</th>
                         <th style="width:120px">Actions</th>

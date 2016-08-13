@@ -20,13 +20,13 @@ class OauthController extends Controller
 
     public function handleProviderCallback()
     {
-        try {
-            $response = Socialite::driver('github')->user();
-        } catch (Exception $e) {
-            return redirect('/')->with('error', [
-                'message' => 'Error authenticating with Github',
-            ]);
-        }
+        // try {
+        $response = Socialite::driver('github')->user();
+        // } catch (Exception $e) {
+        //     return redirect('/')->with('error', [
+        //         'message' => 'Error authenticating with Github',
+        //     ]);
+        // }
 
         // check user is a part of the sands organization
 

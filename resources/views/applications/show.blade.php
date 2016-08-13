@@ -16,21 +16,9 @@
     <div class="panel-body">
         <div class="form-horizontal">
             <div class="form-group">
-                <label for="id" class="col-sm-3 control-label">Id</label>
-                <div class="col-sm-6">
-                    <input type="text" name="id" id="id" class="form-control" value="{{$model['id'] or ''}}" readonly="readonly">
-                </div>
-            </div>
-            <div class="form-group">
                 <label for="name" class="col-sm-3 control-label">Name</label>
                 <div class="col-sm-6">
                     <input type="text" name="name" id="name" class="form-control" value="{{$model['name'] or ''}}" readonly="readonly">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="user_id" class="col-sm-3 control-label">User Id</label>
-                <div class="col-sm-6">
-                    <input type="text" name="user_id" id="user_id" class="form-control" value="{{$model['user_id'] or ''}}" readonly="readonly">
                 </div>
             </div>
             <div class="form-group">
@@ -48,13 +36,13 @@
             <div class="form-group">
                 <label for="enabled_http" class="col-sm-3 control-label">Enabled Http</label>
                 <div class="col-sm-6">
-                    <input type="text" name="enabled_http" id="enabled_http" class="form-control" value="{{$model['enabled_http'] or ''}}" readonly="readonly">
+                    <input type="text" name="enabled_http" id="enabled_http" class="form-control" value="{{$model['enabled_http'] ? 'True' : 'False'}}" readonly="readonly">
                 </div>
             </div>
             <div class="form-group">
                 <label for="enabled_https" class="col-sm-3 control-label">Enabled Https</label>
                 <div class="col-sm-6">
-                    <input type="text" name="enabled_https" id="enabled_https" class="form-control" value="{{$model['enabled_https'] or ''}}" readonly="readonly">
+                    <input type="text" name="enabled_https" id="enabled_https" class="form-control" value="{{$model['enabled_https'] ? 'True' : 'False'}}" readonly="readonly">
                 </div>
             </div>
             <div class="form-group">
