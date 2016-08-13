@@ -27,4 +27,5 @@ Route::get('logout', function () {
 view()->share('__table', 'dashboard');
 Route::get('oauth/github/callback', 'OauthController@handleProviderCallback');
 
+Route::controller('/dashboard', 'DashboardController');
 Route::controller('/applications', 'ApplicationsController');
