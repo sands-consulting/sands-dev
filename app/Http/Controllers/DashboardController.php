@@ -6,6 +6,13 @@ use VMWare;
 
 class DashboardController extends Controller
 {
+
+    public function getIndex()
+    {
+        view()->share('__table', 'dashboard');
+        return view('dashboard');
+    }
+
     public function getIps()
     {
         $arp_scan = shell_exec('sudo ' . env('ARP_SCAN_PATH', '/usr/bin/arp-scan') . ' -l -t 300');
@@ -28,6 +35,11 @@ class DashboardController extends Controller
     public function getVms()
     {
         return VMWare::getVms();
+    }
+
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
     //
 }

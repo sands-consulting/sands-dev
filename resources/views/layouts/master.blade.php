@@ -51,7 +51,7 @@
                     <a class="navbar-brand" href="/">Sands Consulting Developer's Portal</a>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                    <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout {{auth()->user()->nickname}}</a></li>
                 </ul>
             </div>
         </nav>

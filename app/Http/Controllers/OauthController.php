@@ -82,7 +82,7 @@ class OauthController extends Controller
         // login the user
         auth()->login($user);
 
-        return redirect()->action('ApplicationsController@getIndex');
+        return redirect()->action('DashboardController@getIndex');
     }
 
     public function redirectToGoogleProvider()
@@ -146,7 +146,14 @@ class OauthController extends Controller
         // log the user in
         auth()->login($user);
 
-        return redirect()->action('ApplicationsController@getIndex');
+        return redirect()->action('DashboardController@getIndex');
+    }
+
+    public function logout()
+    {
+        session()->flush();
+        auth()->logout();
+        return redirect('/');
     }
     //
 }
