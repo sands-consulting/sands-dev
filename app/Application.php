@@ -11,7 +11,6 @@ class Application extends Model
         'user_id',
         'zone',
         'forward_proxy_host',
-        'enabled_http',
         'enabled_https',
     ];
 }

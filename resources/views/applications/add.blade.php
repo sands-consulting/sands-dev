@@ -51,23 +51,6 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="enabled_http" class="col-sm-3 control-label">Enabled Http</label>
-                <div class="col-sm-9">
-                    <div class="radio">
-                        <label>
-                            <input type="radio" value="1" name="enabled_http" id="enabled_http" @if((isset($model) && $model['enabled_http']) || !isset($model)) checked @endif>
-                            Yes
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" value="0" name="enabled_http" id="enabled_http" @if(isset($model) && !$model['enabled_http']) checked @endif>
-                            No
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
                 <label for="enabled_https" class="col-sm-3 control-label">Enabled Https</label>
                 <div class="col-sm-9">
                     <div class="radio">

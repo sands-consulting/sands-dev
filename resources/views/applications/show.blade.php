@@ -34,12 +34,6 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="enabled_http" class="col-sm-3 control-label">Enabled Http</label>
-                <div class="col-sm-6">
-                    <input type="text" name="enabled_http" id="enabled_http" class="form-control" value="{{$model['enabled_http'] ? 'True' : 'False'}}" readonly="readonly">
-                </div>
-            </div>
-            <div class="form-group">
                 <label for="enabled_https" class="col-sm-3 control-label">Enabled Https</label>
                 <div class="col-sm-6">
                     <input type="text" name="enabled_https" id="enabled_https" class="form-control" value="{{$model['enabled_https'] ? 'True' : 'False'}}" readonly="readonly">

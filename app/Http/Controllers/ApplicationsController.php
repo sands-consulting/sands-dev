@@ -122,7 +122,6 @@ class ApplicationsController extends Controller
         $application->name = $request->name;
         $application->zone = $request->zone;
         $application->forward_proxy_host = $request->forward_proxy_host;
-        $application->enabled_http = $request->enabled_http;
         $application->enabled_https = $request->enabled_https;
         $application->user_id = ($request->user_id ?: $request->user()->id);
         $application->save();
