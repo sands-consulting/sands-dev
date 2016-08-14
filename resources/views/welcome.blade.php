@@ -38,9 +38,13 @@
             </div>
         @endif
         <br>
-        <a href="/login" class="btn btn-primary">
+        <a href="/login/github" class="btn btn-primary">
             <i class="fa fa-github"></i>
-            Login With Github
+            Login With Github Account
+        </a>
+        <a href="/login/google" class="btn btn-primary">
+            <i class="fa fa-google"></i>
+            Login With Google Account
         </a>
 
     </div>

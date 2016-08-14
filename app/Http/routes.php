@@ -18,14 +18,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('login', 'OauthController@redirectToProvider');
+Route::get('login/github', 'OauthController@redirectToGithubProvider');
+Route::get('login/google', 'OauthController@redirectToGoogleProvider');
+Route::get('oauth/github/callback', 'OauthController@handleGithubProviderCallback');
+Route::get('oauth/google/callback', 'OauthController@handleGoogleProviderCallback');
+
 Route::get('logout', function () {
     app('auth')->logout();
     return redirect('/');
 });
 
 view()->share('__table', 'dashboard');
-Route::get('oauth/github/callback', 'OauthController@handleProviderCallback');
 
 Route::controller('/dashboard', 'DashboardController');
 Route::controller('/applications', 'ApplicationsController');
