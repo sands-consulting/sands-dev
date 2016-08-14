@@ -8,7 +8,7 @@
                 VMWare
             </div>
             <div class="panel-body">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <p class="lead">
                         <a href="https://vm-console.internal.my-sands.com" target="blank">https://vm-console.internal.my-sands.com</a>
                         <ul class="list-unstyled">
@@ -21,11 +21,21 @@
                         </ul>
                     </p>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <p class="lead">
                         Teamviewer
                         <ul class="list-unstyled">
                             <li>Username: {{env('TEAMVIEWER_HOST')}}</li>
+                            <li>Password: {{env('VMWARE_PASS')}}</li>
+                        </ul>
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <p class="lead">
+                        VPN
+                        <ul class="list-unstyled">
+                            <li>Installation: <code>brew install sshuttle</code></li>
+                            <li>Command: <code>sshuttle -r ubuntu@dev.my-sands.com 192.168.8/24</code></li>
                             <li>Password: {{env('VMWARE_PASS')}}</li>
                         </ul>
                     </p>
@@ -36,6 +46,9 @@
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">
+                <button id="refreshVm" onclick="getVms()" class="btn btn-primary pull-right btn-xs">
+                    <i class="fa fa-refresh"></i>
+                </button>
                 VMS
             </div>
             <table class="panel-body table">
@@ -60,6 +73,9 @@
     <div class="col-md-6">
         <div class="panel panel-default">
             <div class="panel-heading">
+                <button id="refreshIps" onclick="getIps()" class="btn btn-primary pull-right btn-xs">
+                    <i class="fa fa-refresh"></i>
+                </button>
                 Used IPs
             </div>
             <table class="panel-body table">
@@ -90,29 +106,35 @@
 
 @section('scripts')
     <script type="text/javascript">
-        var ipsTarget = $('#ipsTarget');
-        $.getJSON('/dashboard/ips', function(response){
-            ipsTarget.html('');
-            $.each(response, function(key, val){
-                ipsTarget.append('<tr><td>' + val.ip + '</td><td>' + val.mac + '</td><td>' + val.description + '</td></tr>');
+        function getIps() {
+            var ipsTarget = $('#ipsTarget');
+            ipsTarget.html('<tr><td colspan="3">Loading...</td></tr>');
+            $.getJSON('/dashboard/ips', function(response){
+                ipsTarget.html('');
+                $.each(response, function(key, val){
+                    ipsTarget.append('<tr><td>' + val.ip + '</td><td>' + val.mac + '</td><td>' + val.description + '</td></tr>');
+                });
             });
-        });
-        var vmsTarget = $('#vmsTarget');
-        $.getJSON('/dashboard/vms', function(response){
-            vmsTarget.html('');
-            $.each(response, function(key, val){
-                var buttons = '<a class="btn btn-xs btn-default" href="https://vm-console.internal.my-sands.com/ui/#/console/' + val.id + '" target="blank"><i class="fa fa-desktop"></i></a> ';
-                if(val.ipAddress) {
-                    if(val.guestFamily  == 'linuxGuest') {
-                        buttons = buttons + '<a class="btn btn-xs btn-default" href="ssh://ubuntu@' + val.ipAddress + '" target="blank"><i class="fa fa-terminal"></i></a>'
-                    } else {
-                        buttons = buttons + '<a class="btn btn-xs btn-default" href="rdp://full%20address=s:' + val.ipAddress + '" target="blank"><i class="fa fa-terminal"></i></a>'
+        }
+        function getVms() {
+            var vmsTarget = $('#vmsTarget');
+            vmsTarget.html('<tr><td colspan="6">Loading...</td></tr>');
+            $.getJSON('/dashboard/vms', function(response){
+                vmsTarget.html('');
+                $.each(response, function(key, val){
+                    var buttons = '<a class="btn btn-xs btn-default" href="https://vm-console.internal.my-sands.com/ui/#/console/' + val.id + '" target="blank"><i class="fa fa-desktop"></i></a> ';
+                    if(val.ipAddress) {
+                        if(val.guestFamily  == 'linuxGuest') {
+                            buttons = buttons + '<a class="btn btn-xs btn-default" href="ssh://ubuntu@' + val.ipAddress + '" target="blank"><i class="fa fa-terminal"></i></a>'
+                        } else {
+                            buttons = buttons + '<a class="btn btn-xs btn-default" href="rdp://full%20address=s:' + val.ipAddress + '" target="blank"><i class="fa fa-terminal"></i></a>'
+                        }
                     }
-                }
-                vmsTarget.append('<tr><td>' + val.guestState + '</td><td>' + val.hostName + '</td><td>' + val.guestFullName + '</td><td>' + val.ipAddress + '</td><td>' + val.annotations + '</td><td>' + buttons + '</td></tr>');
+                    vmsTarget.append('<tr><td>' + val.guestState + '</td><td>' + val.hostName + '</td><td>' + val.guestFullName + '</td><td>' + val.ipAddress + '</td><td>' + val.annotations + '</td><td>' + buttons + '</td></tr>');
+                });
             });
-
-            console.log(response);
-        });
+        }
+        getIps();
+        getVms();
     </script>
 @stop
