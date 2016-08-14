@@ -151,9 +151,14 @@ class OauthController extends Controller
 
     public function logout()
     {
-        session()->flush();
         auth()->logout();
-        return redirect('/');
+        session()->regenerate();
+        return redirect('/')->with('error', ['message' => 'You are logged out.']);
+    }
+
+    public function __construct()
+    {
+        $this->middleware('guest', ['except' => ['logout']]);
     }
     //
 }
