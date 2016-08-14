@@ -27,8 +27,12 @@ class RebuildCaddyfileListener
     public function handle(RebuildCaddyfileEvent $event)
     {
         $_template = file_get_contents(resource_path('templates/Caddyhost'));
-        $caddyfile = Application::all()->reduce(function ($carry, $application) use ($_template) {
+        $_templateNoSSL = file_get_contents(resource_path('templates/CaddyhostNoSSL'));
+        $caddyfile = Application::all()->reduce(function ($carry, $application) use ($_template, $_templateNoSSL) {
             $template = $_template;
+            if (!$application->enabled_https) {
+                $template = $_templateNoSSL;
+            }
             foreach ($application->toArray() as $key => $value) {
                 $template = str_replace('[[' . $key . ']]', $value, $template);
             }
