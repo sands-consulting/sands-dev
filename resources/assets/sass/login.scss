@@ -1,0 +1,10 @@
+$icon-font-path: '/fonts/';
+$fa-font-path: $icon-font-path;
+@import "bower_components/font-awesome/scss/font-awesome.scss";
+@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+
+.login-logo {
+  margin-top: 10px;
+  height: 90px;
+  margin-right: 10px;
+}
