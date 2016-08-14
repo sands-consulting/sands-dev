@@ -32,11 +32,22 @@
 <body>
     <br>
     <div class="container">
-        <div class="clearfix">
-            <img src="/images/logo.png" class="pull-left login-logo">
-            <div>
-                <h1>Sands Developer Portal</h1>
-                <p>It's bare because we like it that way</p>
+        <div class="row">
+            <div class="col-xs-12  hidden-xs">
+                <div class="pull-left text-center">
+                    <img src="/images/logo.png" class="login-logo">
+                </div>
+                <div>
+                    <h1>Sands Developer Portal</h1>
+                    <p>Sands Consulting Sdn. Bhd.</p>
+                </div>
+            </div>
+            <div class="col-xs-12 visible-xs hidden-sm">
+                <div class="text-center">
+                    <img src="/images/logo.png" class="login-logo">
+                    <h1>Sands Developer Portal</h1>
+                    <p>Sands Consulting Sdn. Bhd.</p>
+                </div>
             </div>
         </div>
         <hr>
@@ -46,14 +57,19 @@
             </div>
         @endif
         <br>
-        <a href="/login/github" class="btn btn-primary">
-            <i class="fa fa-github"></i>
-            Login With Github Account
-        </a>
-        <a href="/login/google" class="btn btn-primary">
-            <i class="fa fa-google"></i>
-            Login With Google Account
-        </a>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <a href="/login/github" class="btn btn-primary btn-lg btn-primary btn-block">
+                <i class="fa fa-github"></i>
+                Login With Github Account
+            </a>
+            <br>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <a href="/login/google" class="btn btn-primary btn-lg btn-primary btn-block">
+                <i class="fa fa-google"></i>
+                Login With Google Account
+            </a>
+        </div>
     </div>
 </body>
 </html>
