@@ -72,6 +72,10 @@
                 </a>
             </div>
         </div>
+        <hr>
+        <div class="well">
+            This application is intended for Sands Consulting Sdn. Bhd. internal use. Drop an email to <a href="mailto:support@my-sands.com">support@my-sands.com</a> if you are not a part of the Sands organization but you need access to this application.
+        </div>
     </div>
 </body>
 </html>
