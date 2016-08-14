@@ -57,18 +57,20 @@
             </div>
         @endif
         <br>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-            <a href="/login/github" class="btn btn-primary btn-lg btn-primary btn-block">
-                <i class="fa fa-github"></i>
-                Login With Github Account
-            </a>
-            <br>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-            <a href="/login/google" class="btn btn-primary btn-lg btn-primary btn-block">
-                <i class="fa fa-google"></i>
-                Login With Google Account
-            </a>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <a href="/login/github" class="btn btn-primary btn-lg btn-primary btn-block">
+                    <i class="fa fa-github"></i>
+                    Login With Github Account
+                </a>
+                <br>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <a href="/login/google" class="btn btn-primary btn-lg btn-primary btn-block">
+                    <i class="fa fa-google"></i>
+                    Login With Google Account
+                </a>
+            </div>
         </div>
     </div>
 </body>
