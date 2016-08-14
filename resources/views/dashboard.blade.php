@@ -10,15 +10,20 @@
             <div class="panel-body">
                 <div class="col-md-4">
                     <p class="lead">
-                        <a href="https://vm-console.internal.my-sands.com" target="blank">https://vm-console.internal.my-sands.com</a>
-                        <ul class="list-unstyled">
-                            <li>Username: {{env('VMWARE_USER')}}</li>
-                            <li>Password: {{env('VMWARE_PASS')}}</li>
-                            <li>VMRemote:
-                                <a download href="/remote-console.dmg">Mac</a>
-                                <a download href="/remote-console.msi">Win</a>
-                            </li>
-                        </ul>
+                        VM Console
+                    </p>
+                    <ul class="list-unstyled">
+                        <li></li>
+                        <li>Link: <a href="https://vm-console.internal.my-sands.com" target="blank">https://vm-console.internal.my-sands.com</a></li>
+                        <li>Username: {{env('VMWARE_USER')}}</li>
+                        <li>Password: {{env('VMWARE_PASS')}}</li>
+                        <li>VMRemote:
+                            <a download href="/remote-console.dmg">Mac</a>
+                            <a download href="/remote-console.msi">Win</a>
+                        </li>
+                    </ul>
+                    <p class="alert alert-sm alert-warning">
+                        <b>Must be either in office network or connected to VPN first!</b>
                     </p>
                 </div>
                 <div class="col-md-4">
