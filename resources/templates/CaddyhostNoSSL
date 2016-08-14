@@ -1,4 +1,4 @@
-[[zone]] {
+[[zone]]:80 {
     tls off
     proxy / [[forward_proxy_host]] {
         transparent
