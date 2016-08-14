@@ -43,7 +43,7 @@
     <br>
     <div class="container">
         <div class="clearfix">
-            <img src="/assets/images/logo.png" class="pull-left login-logo">
+            <img src="/images/logo.png" class="pull-left login-logo">
             <div>
                 <h1>Sands Developer Portal</h1>
                 <p>It's bare because we like it that way</p>
@@ -64,7 +64,6 @@
             <i class="fa fa-google"></i>
             Login With Google Account
         </a>
-
     </div>
 </body>
 </html>
