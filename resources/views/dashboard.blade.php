@@ -40,7 +40,7 @@
                         VPN
                         <ul class="list-unstyled">
                             <li>Installation: <code>brew install sshuttle</code></li>
-                            <li>Command: <code>sshuttle -r ubuntu@dev.my-sands.com 192.168.8/24</code></li>
+                            <li>Command: <code>sshuttle -r ubuntu@dev.my-sands.com 192.168.8.0/24</code></li>
                             <li>Password: {{env('VMWARE_PASS')}}</li>
                         </ul>
                     </p>
