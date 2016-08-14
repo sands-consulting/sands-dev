@@ -48,22 +48,29 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/">Sands Consulting Developer's Portal</a>
+                    <a class="navbar-brand" href="/">Dev Portal</a>
                 </div>
-                <ul class="nav navbar-nav navbar-right">
+
+                <div id="navbar" class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav navbar-right">
+                    <li class="visible-xs visible-sm {{($__table == 'dashboard' ? 'active': '')}}"><a href="/">Dashboard</a></li>
+                    <li class="visible-xs visible-sm {{($__table == 'applications' ? 'active': '')}}"><a href="{{action('ApplicationsController@getIndex')}}">Applications</a></li>
                     <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout {{auth()->user()->nickname}}</a></li>
+                  </ul>
+                </div>
+                <ul class="nav navbar-nav navbar-right hidden-xs">
                 </ul>
             </div>
         </nav>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-3 col-md-2 sidebar">
+                <div class="col-md-2 visible-md visible-lg sidebar">
                     <ul class="nav nav-sidebar">
                         <li class="{{($__table == 'dashboard' ? 'active': '')}}"><a href="/">Dashboard</a></li>
                         <li class="{{($__table == 'applications' ? 'active': '')}}"><a href="{{action('ApplicationsController@getIndex')}}">Applications</a></li>
                     </ul>
                 </div>
-                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <div class="col-md-10 col-md-offset-2 main">
                     @yield('content')
                 </div>
             </div>
