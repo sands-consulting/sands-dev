@@ -1,0 +1,25 @@
+{
+  "name": "dev.my-sands.dev",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Zulfa Juniadi bin Zulkifli <zulfajuniadi@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/sands-consulting/sands-dev",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.6.3",
+    "datatables": "^1.10.12",
+    "datatables.net-bs": "^1.10.12",
+    "datatables.net-responsive": "^2.1.0",
+    "bootstrap-sass": "^3.3.7"
+  }
+}
