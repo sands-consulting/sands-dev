@@ -1,9 +1,5 @@
 [[zone]] {
     proxy / [[forward_proxy_host]] {
         transparent
-        proxy_header Host {host}
-        proxy_header Port {port}
-        header_upstream X-Forwarded-Port {port}
-        header_upstream X-Forwarded-Host {host}
     }
 }
