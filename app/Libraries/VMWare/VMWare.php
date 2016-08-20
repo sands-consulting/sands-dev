@@ -9,7 +9,6 @@ class VMWare
         $vms = [];
         app('remote')->into('vmware')->run('/bin/vim-cmd vmsvc/getallvms', function ($output) use (&$vms) {
             $outputs = explode("\n", $output);
-            \Log::info('outputs', $outputs);
             foreach ($outputs as $output) {
                 if (strstr($output, 'Vmid')) {
                     continue;
@@ -50,8 +49,15 @@ class VMWare
                     $str = str_replace(',""', ',"', $str);
                     $str = str_replace(",\n}", "\n}", $str);
                     $data = json_decode($str);
-                    $data->id = $values[0];
-                    $data->annotations = $values[5];
+                    if(is_object($data)) {
+                        $data->id = $values[0];
+                        $data->annotations = $values[5];
+                    } else {
+                        $data = (object)[];
+                        $data->id = $values[0];
+                        $data->annotations = '';
+                        $data->guestState = 'API Error';
+                    }
                     $vms[] = $data;
                 }
             };
