@@ -15,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Validator::extend('domain', function ($attribute, $value, $parameters, $validator) {
-            return checkdnsrr($value);
+            return checkdnsrr($value, 'ANY');
         });
     }
 
