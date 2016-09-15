@@ -29,12 +29,17 @@ class DashboardController extends Controller
                 'description' => $matches[3],
             ];
         }
+        app('redis')->set('sands-dev:ips', json_encode($ips));
+        app('redis')->set('sands-dev:ips:count', count($ips));
         return $ips;
     }
 
     public function getVms()
     {
-        return VMWare::getVms();
+        $vms = VMWare::getVms();
+        app('redis')->set('sands-dev:ips', json_encode($vms));
+        app('redis')->set('sands-dev:ips:count', count($vms));
+        return $vms;
     }
 
     public function __construct()
