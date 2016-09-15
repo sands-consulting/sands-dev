@@ -1,4 +1,5 @@
 var elixir = require('laravel-elixir');
+require('laravel-elixir-livereload');
 
 /*
  |--------------------------------------------------------------------------
@@ -27,5 +28,12 @@ elixir(function(mix) {
         'bower_components/datatables.net-responsive/js/dataTables.responsive.js',
         'bower_components/datatables.net-responsive-bs/js/responsive.bootstrap.js',
     ], 'public/js/app.js', './');
-    mix.version(['css/login.css', 'css/app.css', 'js/app.js']);
+    mix.scripts([
+        'bower_components/angular/angular.js',
+        'bower_components/angular-ui-router/release/angular-ui-router.min.js',
+        'bower_components/elasticsearch/elasticsearch.angular.min.js',
+        'resources/scripts/kb.js',
+    ], 'public/js/kb.js', './');
+    mix.version(['css/login.css', 'css/app.css', 'js/app.js', 'js/kb.js']);
+    mix.livereload();
 });
