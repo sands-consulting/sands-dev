@@ -31,6 +31,33 @@
             <a href="{{url('applications/add')}}" class="btn btn-primary" role="button">Add application</a>
         </div>
     </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <button id="refreshVm" onclick="getVms()" class="btn btn-primary pull-right btn-xs">
+                <i class="fa fa-refresh"></i>
+            </button>
+            VMS
+        </div>
+        <table class="panel-body table">
+            <thead>
+                <tr>
+                    <th>State</th>
+                    <th>Hostname</th>
+                    <th>OS</th>
+                    <th>IP</th>
+                    <th>Annotations</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="vmsTarget">
+                <tr>
+                    <td colspan="3">Loading...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
 @endsection
 
 
@@ -68,5 +95,24 @@
             }
             return false;
         }
+        function getVms() {
+            var vmsTarget = $('#vmsTarget');
+            vmsTarget.html('<tr><td colspan="6">Loading...</td></tr>');
+            $.getJSON('/dashboard/vms', function(response){
+                vmsTarget.html('');
+                $.each(response, function(key, val){
+                    var buttons = '<a class="btn btn-xs btn-default" href="https://vm-console.internal.my-sands.com/ui/#/console/' + val.id + '" target="blank"><i class="fa fa-desktop"></i></a> ';
+                    if(val.ipAddress) {
+                        if(val.guestFamily  == 'linuxGuest') {
+                            buttons = buttons + '<a class="btn btn-xs btn-default" href="ssh://ubuntu@' + val.ipAddress + '" target="blank"><i class="fa fa-terminal"></i></a>'
+                        } else {
+                            buttons = buttons + '<a class="btn btn-xs btn-default" href="rdp://full%20address=s:' + val.ipAddress + '" target="blank"><i class="fa fa-terminal"></i></a>'
+                        }
+                    }
+                    vmsTarget.append('<tr><td>' + val.guestState + '</td><td>' + val.hostName + '</td><td>' + val.guestFullName + '</td><td>' + val.ipAddress + '</td><td>' + val.annotations + '</td><td>' + buttons + '</td></tr>');
+                });
+            });
+        }
+        getVms();
     </script>
 @endsection
