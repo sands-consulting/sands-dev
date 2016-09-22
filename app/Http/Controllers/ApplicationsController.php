@@ -67,7 +67,7 @@ class ApplicationsController extends Controller
         $select = "SELECT " . implode(', ', $columns);
         $presql = " FROM applications ";
         $presql .= " join users on users.id = applications.user_id";
-        $presql .= " where user_id = '{$request->user()->id}'";
+        // $presql .= " where user_id = '{$request->user()->id}'";
         if ($request->search['value']) {
             $presql .= " WHERE applications.name LIKE '%" . $request->search['value'] . "%' ";
         }

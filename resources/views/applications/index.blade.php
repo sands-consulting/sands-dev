@@ -79,7 +79,7 @@
                     },
                     {
                         render: function ( data, type, row ) {
-                            return '<div class="btn-group"><a href="{{url('applications/show')}}/'+row[0]+'" class="btn btn-sm btn-default"><i class="fa fa-eye"></i></a> <a href="{{url('applications/update')}}/'+row[0]+'" class="btn btn-sm btn-default"><i class="fa fa-pencil"></i></a> <a href="{{url('applications/delete')}}" onclick="return doDelete('+row[0]+')" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a></div>';
+                            return '<div class="btn-group"><a href="{{url('applications/show')}}/'+row[0]+'" class="btn btn-sm btn-default"><i class="fa fa-eye"></i></a> <a href="{{url('applications/update')}}/'+row[0]+'" class="btn btn-sm btn-default"><i class="fa fa-pencil"></i></a> <a href="{{url('applications/delete')}}/'+row[0]+'" onclick="return doDelete('+row[0]+')" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a></div>';
                         },
                         targets: -1
                     },
