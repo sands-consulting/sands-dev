@@ -20,6 +20,10 @@
     "datatables": "^1.10.12",
     "datatables.net-bs": "^1.10.12",
     "bootstrap-sass": "^3.3.7",
-    "datatables.net-responsive-bs": "^2.1.0"
+    "datatables.net-responsive-bs": "^2.1.0",
+    "elasticsearch": "^11.0.1",
+    "angular": "angularjs#^1.5.8",
+    "angular-ui-router": "^0.3.1",
+    "angular-wysiwyg": "^1.2.4"
   }
 }

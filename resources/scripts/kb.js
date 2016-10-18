@@ -1,0 +1,1 @@
+angular.module('kb', ['ui.router', 'wysiwyg.module'])
