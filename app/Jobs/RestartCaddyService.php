@@ -29,6 +29,6 @@ class RestartCaddyService extends Job implements ShouldQueue
     public function handle()
     {
         echo "Executing caddy restart\n";
-        exec("/usr/bin/sudo /usr/sbin/service caddy restart");
+        exec("/usr/bin/sudo /usr/sbin/service caddy reload");
     }
 }
